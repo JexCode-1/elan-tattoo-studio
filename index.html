@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Élan Tattoo Studio</title>
+
+  <meta name="description" content="Élan Tattoo Studio — custom tattoo art, fine line, blackwork and creative tattoo designs.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #090909;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #242424;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #b99cff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #b99cff;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 750px;
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      color: #b99cff;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 105px);
+      line-height: .95;
+      letter-spacing: -4px;
+      margin-bottom: 30px;
+    }
+
+    .hero h1 span {
+      color: #b99cff;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #aaa;
+      font-size: 18px;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 23px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: .3s;
+      display: inline-block;
+    }
+
+    .primary {
+      background: #b99cff;
+      color: #111;
+    }
+
+    .primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .secondary {
+      border: 1px solid #3a3a3a;
+    }
+
+    .secondary:hover {
+      border-color: #b99cff;
+      color: #b99cff;
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 100px 0;
+      border-top: 1px solid #202020;
+    }
+
+    .section-label {
+      color: #b99cff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(35px, 5vw, 55px);
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      color: #999;
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-box {
+      border: 1px solid #292929;
+      background: #111;
+      padding: 45px;
+      border-radius: 20px;
+    }
+
+    .about-box h3 {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .about-box p {
+      color: #999;
+      margin-bottom: 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .stat {
+      padding: 30px;
+      background: #111;
+      border: 1px solid #292929;
+      border-radius: 15px;
+    }
+
+    .stat strong {
+      font-size: 32px;
+      color: #b99cff;
+      display: block;
+    }
+
+    .stat span {
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* SERVICES */
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      background: #111;
+      border: 1px solid #292929;
+      padding: 30px;
+      border-radius: 16px;
+      transition: .3s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      border-color: #665783;
+    }
+
+    .service-number {
+      color: #b99cff;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .service h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .service p {
+      color: #888;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-item {
+      min-height: 300px;
+      border-radius: 16px;
+      border: 1px solid #292929;
+      background: linear-gradient(145deg, #25202f, #111);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .gallery-item:nth-child(2) {
+      background: linear-gradient(145deg, #171717, #30263d);
+    }
+
+    .gallery-item:nth-child(3) {
+      background: linear-gradient(145deg, #2b2533, #111);
+    }
+
+    .gallery-item:nth-child(4) {
+      background: linear-gradient(145deg, #111, #292331);
+    }
+
+    .gallery-item:nth-child(5) {
+      background: linear-gradient(145deg, #30263d, #151515);
+    }
+
+    .gallery-item:nth-child(6) {
+      background: linear-gradient(145deg, #171717, #27202f);
+    }
+
+    .gallery-content {
+      color: #aaa;
+    }
+
+    .gallery-content strong {
+      display: block;
+      color: white;
+      font-size: 22px;
+      margin-bottom: 7px;
+    }
+
+    /* PRICING */
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .price-card {
+      padding: 35px;
+      background: #111;
+      border: 1px solid #292929;
+      border-radius: 18px;
+    }
+
+    .price-card.featured {
+      border-color: #8065a7;
+    }
+
+    .price-card h3 {
+      font-size: 23px;
+    }
+
+    .price {
+      font-size: 35px;
+      font-weight: bold;
+      margin: 18px 0;
+    }
+
+    .price-card ul {
+      list-style: none;
+      color: #999;
+      margin-bottom: 25px;
+    }
+
+    .price-card li {
+      margin-bottom: 9px;
+    }
+
+    .price-card li::before {
+      content: "✓ ";
+      color: #b99cff;
+    }
+
+    /* BOOKING */
+
+    .booking {
+      text-align: center;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .booking h2 {
+      font-size: clamp(38px, 6vw, 65px);
+      margin-bottom: 18px;
+    }
+
+    .booking p {
+      color: #999;
+      margin-bottom: 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #202020;
+      padding: 30px 0;
+      color: #666;
+      font-size: 13px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content {
+        padding: 80px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-grid,
+      .gallery,
+      .pricing {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-item {
+        min-height: 250px;
+      }
+
+      .about-box {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <div class="container">
+
+    <nav>
+
+      <div class="logo">
+        ÉLAN <span>STUDIO</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#booking">Book</a></li>
+      </ul>
+
+    </nav>
+
+  </div>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <div class="container">
+
+      <section class="hero">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Custom Tattoo Studio
+          </div>
+
+          <h1>
+            Ink that tells
+            <span>your story.</span>
+          </h1>
+
+          <p>
+            Élan Tattoo Studio creates custom tattoo artwork
+            designed around your personality, ideas and individual style.
+          </p>
+
+          <div class="buttons">
+
+            <a href="#booking" class="btn primary">
+              Book a Session
+            </a>
+
+            <a href="#gallery" class="btn secondary">
+              Explore Our Work
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-label">
+          About Élan
+        </div>
+
+        <h2 class="section-title">
+          Your idea. Our craft.
+        </h2>
+
+        <p class="section-text">
+          We believe tattoos should feel personal.
+          Our studio focuses on thoughtful designs, clean
+          execution and a comfortable experience from the
+          first conversation to the finished piece.
+        </p>
+
+
+        <div class="about-grid">
+
+          <div class="about-box">
+
+            <h3>
+              Made for you.
+            </h3>
+
+            <p>
+              Every tattoo starts with an idea.
+              Whether you already have a design in mind
+              or need help developing one, we work with
+              you to create something personal.
+            </p>
+
+            <p>
+              From delicate fine-line pieces to bold
+              blackwork, our approach is centred around
+              detail and individuality.
+            </p>
+
+          </div>
+
+
+          <div class="stats">
+
+            <div class="stat">
+              <strong>100+</strong>
+              <span>Custom Designs</span>
+            </div>
+
+            <div class="stat">
+              <strong>5★</strong>
+              <span>Client Experience</span>
+            </div>
+
+            <div class="stat">
+              <strong>4+</strong>
+              <span>Signature Styles</span>
+            </div>
+
+            <div class="stat">
+              <strong>1:1</strong>
+              <span>Personal Consultation</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+      <div class="container">
+
+        <div class="section-label">
+          What We Do
+        </div>
+
+        <h2 class="section-title">
+          Our services
+        </h2>
+
+        <p class="section-text">
+          Choose a style or bring us your own idea.
+          We'll help turn it into a tattoo you'll love.
+        </p>
+
+
+        <div class="service-grid">
+
+          <div class="service">
+
+            <div class="service-number">
+              01
+            </div>
+
+            <h3>
+              Fine Line
+            </h3>
+
+            <p>
+              Delicate, minimal designs with clean
+              and precise lines.
+            </p>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-number">
+              02
+            </div>
+
+            <h3>
+              Blackwork
+            </h3>
+
+            <p>
+              Bold black designs with strong shapes,
+              contrast and detail.
+            </p>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-number">
+              03
+            </div>
+
+            <h3>
+              Custom Tattoos
+            </h3>
+
+            <p>
+              Original artwork developed specifically
+              around your idea.
+            </p>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-number">
+              04
+            </div>
+
+            <h3>
+              Lettering
+            </h3>
+
+            <p>
+              Personal words, names and meaningful
+              phrases designed in your chosen style.
+            </p>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-number">
+              05
+            </div>
+
+            <h3>
+              Cover Ups
+            </h3>
+
+            <p>
+              Creative designs developed to transform
+              or incorporate an existing tattoo.
+            </p>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-number">
+              06
+            </div>
+
+            <h3>
+              Consultations
+            </h3>
+
+            <p>
+              Talk through your idea, placement,
+              style and design before booking.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section id="gallery">
+
+      <div class="container">
+
+        <div class="section-label">
+          Portfolio
+        </div>
+
+        <h2 class="section-title">
+          Selected work
+        </h2>
+
+        <p class="section-text">
+          A selection of tattoo concepts representing
+          different styles and approaches.
+        </p>
+
+
+        <div class="gallery">
+
+          <div class="gallery-item">
+            <div class="gallery-content">
+              <strong>Fine Line</strong>
+              Botanical Design
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-content">
+              <strong>Blackwork</strong>
+              Abstract Design
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-content">
+              <strong>Minimal</strong>
+              Symbol Design
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-content">
+              <strong>Lettering</strong>
+              Custom Script
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-content">
+              <strong>Custom</strong>
+              Original Artwork
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <div class="gallery-content">
+              <strong>Blackwork</strong>
+              Geometric Design
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRICING -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">
+          Starting Prices
+        </div>
+
+        <h2 class="section-title">
+          Tattoo sessions
+        </h2>
+
+        <p class="section-text">
+          Final pricing depends on size, placement,
+          detail and design complexity.
+        </p>
+
+
+        <div class="pricing">
+
+
+          <div class="price-card">
+
+            <h3>
+              Small
+            </h3>
+
+            <div class="price">
+              ₦25,000+
+            </div>
+
+            <ul>
+              <li>Small designs</li>
+              <li>Simple line work</li>
+              <li>Consultation</li>
+            </ul>
+
+            <a href="#booking" class="btn secondary">
+              Enquire
+            </a>
+
+          </div>
+
+
+          <div class="price-card featured">
+
+            <h3>
+              Custom
+            </h3>
+
+            <div class="price">
+              ₦50,000+
+            </div>
+
+            <ul>
+              <li>Custom artwork</li>
+              <li>Medium-sized designs</li>
+              <li>Personal consultation</li>
+            </ul>
+
+            <a href="#booking" class="btn primary">
+              Book Session
+            </a>
+
+          </div>
+
+
+          <div class="price-card">
+
+            <h3>
+              Large
+            </h3>
+
+            <div class="price">
+              Let's Talk
+            </div>
+
+            <ul>
+              <li>Large pieces</li>
+              <li>Complex artwork</li>
+              <li>Custom consultation</li>
+            </ul>
+
+            <a href="#booking" class="btn secondary">
+              Enquire
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOOKING -->
+
+    <section id="booking">
+
+      <div class="container">
+
+        <div class="booking">
+
+          <div class="section-label">
+            Start Your Tattoo
+          </div>
+
+          <h2>
+            Have an idea?
+            Let's create it.
+          </h2>
+
+          <p>
+            Tell us about your tattoo idea, preferred style,
+            placement and approximate size. We'll get back
+            to you to discuss the next step.
+          </p>
+
+          <!-- CHANGE THE NUMBER BELOW TO A DEMO/REAL BUSINESS NUMBER -->
+
+          <a
+            href="https://wa.me/2340000000000"
+            class="btn primary"
+            target="_blank"
+          >
+            Book via WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-content">
+
+        <p>
+          © 2026 Élan Tattoo Studio
+        </p>
+
+        <p>
+          Custom Tattoo Art • Fine Line • Blackwork
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
